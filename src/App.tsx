@@ -1,8 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react';
 import { Table } from 'antd';
+import React, { useEffect, useRef, useState } from 'react';
 import { VariableSizeGrid as Grid } from 'react-window';
 import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
+
 // 可滚动虚拟列表
 function VirtualTable(props: Parameters<typeof Table>[0]) {
   const { columns, scroll } = props;
@@ -47,6 +48,7 @@ function VirtualTable(props: Parameters<typeof Table>[0]) {
   const renderVirtualList = (rawData: object[], { scrollbarSize, ref, onScroll }: any) => {
     ref.current = connectObject;
     const totalHeight = rawData.length * 54;
+
     return (
       <Grid
         ref={gridRef}
