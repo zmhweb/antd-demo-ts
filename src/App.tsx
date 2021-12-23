@@ -37,15 +37,15 @@ function VirtualTable(props: Parameters<typeof Table>[0]) {
   });
 
   const resetVirtualGrid = () => {
-    gridRef.current.resetAfterIndices({
-      columnIndex: 0,
-      shouldForceUpdate: true,
-    });
+    // gridRef.current.resetAfterIndices({
+    //   columnIndex: 0,
+    //   shouldForceUpdate: true,
+    // });
   };
 
   useEffect(() => resetVirtualGrid, [tableWidth]);
 
-  const renderVirtualList = (rawData: object[], { scrollbarSize, ref, onScroll }: any) => {
+  const renderVirtualList = (rawData: readonly object[], { scrollbarSize, ref, onScroll }: any) => {
     ref.current = connectObject;
     const totalHeight = rawData.length * 54;
 
